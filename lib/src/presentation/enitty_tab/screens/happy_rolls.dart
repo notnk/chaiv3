@@ -66,7 +66,7 @@ class _HappyRollsState extends State<HappyRolls> {
         // elevation: 0.2,
         centerTitle: false,
         backgroundColor: newBackgroundColor,
-        title: Text(
+        title: const Text(
           'Happy Rolls',
           style: TextStyle(
             color: textColor,
@@ -82,7 +82,7 @@ class _HappyRollsState extends State<HappyRolls> {
                 Column(
                   children: [
                     SizedBox(
-                      height: 140,
+                      height: 85,
                       child: StreamBuilder(
                         stream: FirebaseFirestore.instance
                             .collection('users')
@@ -106,6 +106,11 @@ class _HappyRollsState extends State<HappyRolls> {
                                 return Container(
                                   margin: const EdgeInsets.all(10),
                                   decoration: const BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 1,
+                                      ),
+                                    ],
                                     color: primaryColor,
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(15),
@@ -114,7 +119,7 @@ class _HappyRollsState extends State<HappyRolls> {
                                   child: Column(
                                     children: [
                                       ListTile(
-                                        leading: Text(
+                                        leading: const Text(
                                           "Coins Earned",
                                           style: TextStyle(
                                             fontSize: 18,
@@ -123,28 +128,12 @@ class _HappyRollsState extends State<HappyRolls> {
                                         ),
                                         trailing: Text(
                                           '${snapshot.data!.docs[index].data()['coin']} ',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 18,
                                             color: textColor,
                                           ),
                                         ),
                                       ),
-                                      // ListTile(
-                                      //   leading: Text(
-                                      //     "Your visits",
-                                      //     style: TextStyle(
-                                      //       fontSize: 18,
-                                      //       color: textColor,
-                                      //     ),
-                                      //   ),
-                                      //   trailing: Text(
-                                      //     ' ${snapshot.data!.docs[index].data()['visit']}',
-                                      //     style: TextStyle(
-                                      //       fontSize: 18,
-                                      //       color: textColor,
-                                      //     ),
-                                      //   ),
-                                      // ),
                                     ],
                                   ),
                                 );
@@ -162,7 +151,6 @@ class _HappyRollsState extends State<HappyRolls> {
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 1,
-                            spreadRadius: 2,
                           ),
                         ],
                         borderRadius: BorderRadius.all(
@@ -170,10 +158,9 @@ class _HappyRollsState extends State<HappyRolls> {
                         ),
                         image: DecorationImage(
                           image: NetworkImage(
-                            'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg',
+                            'https://images.unsplash.com/photo-1642783944285-b33b18ef6c3b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
                           ),
-                          // image: AssetImage('lib/src/assets/HappyRolls.jpeg'),
-                          fit: BoxFit.fill,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -183,113 +170,83 @@ class _HappyRollsState extends State<HappyRolls> {
                     SizedBox(
                       height: 30,
                       width: MediaQuery.of(context).size.width,
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith(
-                                (states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return Colors.white;
-                                  }
-                                  return textColor;
-                                },
+                      child: Center(
+                        child: ListView(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith(
+                                  (states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
+                                      return Colors.white;
+                                    }
+                                    return primaryColor;
+                                  },
+                                ),
+                              ),
+                              onPressed: () => _launchUrl(url: locationUrl),
+                              child: Row(
+                                children: const [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Locate Us",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            onPressed: () => _launchUrl(url: locationUrl),
-                            child: Row(
-                              children: const [
-                                Icon(
-                                  Icons.location_on,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Location",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
+                            const SizedBox(
+                              width: 20,
                             ),
-                          ),
-                          // const SizedBox(
-                          //   width: 20,
-                          // ),
-                          // ElevatedButton(
-                          //   style: ButtonStyle(
-                          //     backgroundColor:
-                          //         MaterialStateProperty.resolveWith(
-                          //       (states) {
-                          //         if (states.contains(MaterialState.pressed)) {
-                          //           return Colors.white;
-                          //         }
-                          //         return primaryColor;
-                          //       },
-                          //     ),
-                          //   ),
-                          //   onPressed: () => {},
-                          //   child: Row(
-                          //     children: const [
-                          //       Icon(
-                          //         Icons.menu_open_rounded,
-                          //         color: Colors.white,
-                          //       ),
-                          //       SizedBox(
-                          //         width: 5,
-                          //       ),
-                          //       Text(
-                          //         "Menu",
-                          //         style: TextStyle(
-                          //           color: Colors.white,
-                          //         ),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith(
-                                (states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return Colors.white;
-                                  }
-                                  return textColor;
-                                },
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith(
+                                  (states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
+                                      return Colors.white;
+                                    }
+                                    return primaryColor;
+                                  },
+                                ),
+                              ),
+                              onPressed: () => _launchUrl(url: fbUrl),
+                              child: Row(
+                                children: const [
+                                  Icon(
+                                    Icons.facebook_rounded,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Review Us",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            onPressed: () => _launchUrl(url: fbUrl),
-                            child: Row(
-                              children: const [
-                                Icon(
-                                  Icons.facebook_rounded,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Socials",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -297,15 +254,15 @@ class _HappyRollsState extends State<HappyRolls> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const SizedBox(
+                      children: const [
+                        SizedBox(
                           width: 100,
                           child: Divider(
                             thickness: 1.3,
-                            color: Colors.grey,
+                            color: Colors.black,
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -315,14 +272,14 @@ class _HappyRollsState extends State<HappyRolls> {
                             color: textColor,
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 100,
                           child: Divider(
                             thickness: 1.3,
-                            color: Colors.grey,
+                            color: Colors.black,
                           ),
                         ),
                       ],
@@ -349,16 +306,14 @@ class _HappyRollsState extends State<HappyRolls> {
                             width: MediaQuery.of(context).size.width - 40,
                             decoration: BoxDecoration(
                               color: primaryColor,
-                              // boxShadow: [
-                              //   BoxShadow(
-                              //     blurRadius: 1,
-                              //     spreadRadius: 2,
-                              //     color: textColor,
-                              //   ),
-                              // ],
                               borderRadius: BorderRadius.circular(15),
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 1,
+                                ),
+                              ],
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 "Coins offers",
                                 style: TextStyle(

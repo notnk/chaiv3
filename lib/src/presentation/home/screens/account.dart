@@ -33,7 +33,7 @@ class _AccountState extends State<Account> {
           ),
           Text(
             '${auth.currentUser!.displayName}',
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 18,
               color: textColor,
             ),
@@ -42,38 +42,35 @@ class _AccountState extends State<Account> {
             height: 30,
           ),
           ListTile(
-            // onTap: () {},
-            leading: Icon(Icons.email_outlined, color: textColor),
+            leading: const Icon(Icons.email_outlined, color: textColor),
             title: Text(
               '${auth.currentUser!.email}',
-              style: TextStyle(color: textColor),
-            ),
-          ),
-          ListTile(
-            // onTap: () => {},
-            leading: Icon(Icons.coffee_sharp, color: textColor),
-            title: Text(
-              'Buy us a chai',
-              style: TextStyle(color: textColor),
-            ),
-          ),
-          ListTile(
-            // onTap: () => {},
-            leading: Icon(Icons.question_mark_sharp, color: textColor),
-            title: Text(
-              'About',
-              style: TextStyle(color: textColor),
+              style: const TextStyle(
+                color: textColor,
+              ),
             ),
           ),
           ListTile(
             onTap: () => auth.signOut(),
-            leading: Icon(Icons.logout_outlined, color: textColor),
-            title: Text(
+            leading: const Icon(
+              Icons.logout_outlined,
+              color: textColor,
+            ),
+            title: const Text(
               'Logout',
               style: TextStyle(color: textColor),
             ),
-          ),
+          )
         ],
+      ),
+      bottomNavigationBar: const Text(
+        "Developed by notnk",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          fontStyle: FontStyle.italic,
+          color: textColor,
+          fontSize: 10,
+        ),
       ),
     );
   }

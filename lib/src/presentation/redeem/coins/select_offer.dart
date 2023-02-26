@@ -16,7 +16,7 @@ class _SelectOfferState extends State<SelectOffer> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Offers avaliable",
           style: TextStyle(
             color: textColor,

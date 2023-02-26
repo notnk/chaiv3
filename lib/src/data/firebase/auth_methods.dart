@@ -8,7 +8,6 @@ import 'package:google_sign_in/google_sign_in.dart';
 import '../models/hotel_model.dart';
 
 class AuthMethods {
-  // final _storage = const FlutterSecureStorage();
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   Future<FBUser> getUserDetails({

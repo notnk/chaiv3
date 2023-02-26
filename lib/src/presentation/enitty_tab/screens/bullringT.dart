@@ -18,8 +18,8 @@ class BullRingT extends StatefulWidget {
 
 class _BullRingTState extends State<BullRingT> {
   var uid = FirebaseAuth.instance.currentUser!.uid;
-  final fbUrl = Uri.parse('https://www.facebook.com/bullringfckochi/');
-  final locationUrl = Uri.parse('https://maps.app.goo.gl/mwzkmmnrH93Vqrjg6');
+  final fbUrl = Uri.parse('https://www.facebook.com/bullringfckochi');
+  final locationUrl = Uri.parse('https://maps.app.goo.gl/QCVoak2uyF16xcRV7');
 
   Future<void> _launchUrl({
     required Uri url,
@@ -65,7 +65,7 @@ class _BullRingTState extends State<BullRingT> {
       appBar: AppBar(
         centerTitle: false,
         backgroundColor: newBackgroundColor,
-        title: Text(
+        title: const Text(
           'BullRing FC',
           style: TextStyle(
             color: textColor,
@@ -81,7 +81,7 @@ class _BullRingTState extends State<BullRingT> {
                 Column(
                   children: [
                     SizedBox(
-                      height: 140,
+                      height: 85,
                       child: StreamBuilder(
                         stream: FirebaseFirestore.instance
                             .collection('users')
@@ -105,6 +105,11 @@ class _BullRingTState extends State<BullRingT> {
                                 return Container(
                                   margin: const EdgeInsets.all(10),
                                   decoration: const BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 1,
+                                      ),
+                                    ],
                                     color: primaryColor,
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(15),
@@ -112,24 +117,8 @@ class _BullRingTState extends State<BullRingT> {
                                   ),
                                   child: Column(
                                     children: [
-                                      // ListTile(
-                                      //   leading: Text(
-                                      //     "Coins Earned",
-                                      //     style: TextStyle(
-                                      //       fontSize: 18,
-                                      //       color: textColor,
-                                      //     ),
-                                      //   ),
-                                      //   trailing: Text(
-                                      //     '${snapshot.data!.docs[index].data()['coin']} ',
-                                      //     style: TextStyle(
-                                      //       fontSize: 18,
-                                      //       color: textColor,
-                                      //     ),
-                                      //   ),
-                                      // ),
                                       ListTile(
-                                        leading: Text(
+                                        leading: const Text(
                                           "Your visits",
                                           style: TextStyle(
                                             fontSize: 18,
@@ -137,8 +126,8 @@ class _BullRingTState extends State<BullRingT> {
                                           ),
                                         ),
                                         trailing: Text(
-                                          ' ${snapshot.data!.docs[index].data()['visit']}',
-                                          style: TextStyle(
+                                          '${snapshot.data!.docs[index].data()['visit']} ',
+                                          style: const TextStyle(
                                             fontSize: 18,
                                             color: textColor,
                                           ),
@@ -161,18 +150,16 @@ class _BullRingTState extends State<BullRingT> {
                         boxShadow: [
                           BoxShadow(
                             blurRadius: 1,
-                            spreadRadius: 2,
                           ),
                         ],
                         borderRadius: BorderRadius.all(
                           Radius.circular(15),
                         ),
                         image: DecorationImage(
-                          // image: NetworkImage(
-                          //   'https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg',
-                          // ),
-                          image: AssetImage('lib/src/assets/BullRing.jpeg'),
-                          fit: BoxFit.fill,
+                          image: NetworkImage(
+                            'https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80',
+                          ),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -182,113 +169,83 @@ class _BullRingTState extends State<BullRingT> {
                     SizedBox(
                       height: 30,
                       width: MediaQuery.of(context).size.width,
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith(
-                                (states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return Colors.white;
-                                  }
-                                  return textColor;
-                                },
+                      child: Center(
+                        child: ListView(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith(
+                                  (states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
+                                      return Colors.white;
+                                    }
+                                    return primaryColor;
+                                  },
+                                ),
+                              ),
+                              onPressed: () => _launchUrl(url: locationUrl),
+                              child: Row(
+                                children: const [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Locate Us",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            onPressed: () => _launchUrl(url: locationUrl),
-                            child: Row(
-                              children: const [
-                                Icon(
-                                  Icons.location_on,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Location",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
+                            const SizedBox(
+                              width: 20,
                             ),
-                          ),
-                          // const SizedBox(
-                          //   width: 20,
-                          // ),
-                          // ElevatedButton(
-                          //   style: ButtonStyle(
-                          //     backgroundColor:
-                          //         MaterialStateProperty.resolveWith(
-                          //       (states) {
-                          //         if (states.contains(MaterialState.pressed)) {
-                          //           return Colors.white;
-                          //         }
-                          //         return primaryColor;
-                          //       },
-                          //     ),
-                          //   ),
-                          //   onPressed: () => {},
-                          //   child: Row(
-                          //     children: const [
-                          //       Icon(
-                          //         Icons.menu_open_rounded,
-                          //         color: Colors.white,
-                          //       ),
-                          //       SizedBox(
-                          //         width: 5,
-                          //       ),
-                          //       Text(
-                          //         "Menu",
-                          //         style: TextStyle(
-                          //           color: Colors.white,
-                          //         ),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith(
-                                (states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return Colors.white;
-                                  }
-                                  return textColor;
-                                },
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith(
+                                  (states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
+                                      return Colors.white;
+                                    }
+                                    return primaryColor;
+                                  },
+                                ),
+                              ),
+                              onPressed: () => _launchUrl(url: fbUrl),
+                              child: Row(
+                                children: const [
+                                  Icon(
+                                    Icons.facebook_rounded,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Review Us",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            onPressed: () => _launchUrl(url: fbUrl),
-                            child: Row(
-                              children: const [
-                                Icon(
-                                  Icons.facebook_rounded,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Socials",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -296,15 +253,15 @@ class _BullRingTState extends State<BullRingT> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const SizedBox(
+                      children: const [
+                        SizedBox(
                           width: 100,
                           child: Divider(
                             thickness: 1.3,
-                            color: Colors.grey,
+                            color: Colors.black,
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -314,14 +271,14 @@ class _BullRingTState extends State<BullRingT> {
                             color: textColor,
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 100,
                           child: Divider(
                             thickness: 1.3,
-                            color: Colors.grey,
+                            color: Colors.black,
                           ),
                         ),
                       ],
@@ -337,7 +294,7 @@ class _BullRingTState extends State<BullRingT> {
                         ),
                         InkWell(
                           onTap: () => Navigator.of(context).push(
-                            MaterialPageRoute(
+                            SwipeablePageRoute(
                               builder: (context) => const SelectVisits(
                                 hotelName: 'BullRingT',
                               ),
@@ -349,8 +306,13 @@ class _BullRingTState extends State<BullRingT> {
                             decoration: BoxDecoration(
                               color: primaryColor,
                               borderRadius: BorderRadius.circular(15),
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 1,
+                                ),
+                              ],
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 "Visits offers",
                                 style: TextStyle(

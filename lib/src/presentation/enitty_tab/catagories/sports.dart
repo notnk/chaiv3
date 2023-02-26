@@ -29,15 +29,18 @@ class _SportsPageState extends State<SportsPage> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
                       horizontal: horizontalPadding,
                       vertical: verticalPadding,
                     ),
                     child: Text(
                       "Avaliable Sports Centers",
-                      style:
-                          TextStyle(fontSize: 20, color: Colors.grey.shade800),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 13),
@@ -45,12 +48,11 @@ class _SportsPageState extends State<SportsPage> {
                     padding: EdgeInsets.symmetric(horizontal: 40.0),
                     child: Divider(
                       thickness: 1,
-                      color: Color.fromARGB(255, 204, 204, 204),
+                      color: Colors.black,
                     ),
                   ),
                   Column(
                     children: [
-                      Container(),
                       const SizedBox(
                         height: 40,
                       ),
@@ -66,11 +68,16 @@ class _SportsPageState extends State<SportsPage> {
                           margin: const EdgeInsets.symmetric(
                             horizontal: 10,
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
-                            color: Colors.grey[900],
+                            color: primaryColor,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                              ),
+                            ],
                           ),
                           child: Column(
                             children: [
@@ -83,7 +90,7 @@ class _SportsPageState extends State<SportsPage> {
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
                                     image: AssetImage(
-                                      "lib/src/assets/bullring.png",
+                                      "lib/src/assets/bullring.jpg",
                                     ),
                                     fit: BoxFit.fitWidth,
                                   ),
@@ -93,18 +100,15 @@ class _SportsPageState extends State<SportsPage> {
                                   ),
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 height: 100,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white10,
-                                ),
                                 child: Column(
                                   children: [
                                     ListTile(
                                       leading: const Text(
                                         "BullRing FC",
                                         style: TextStyle(
-                                          color: Colors.white,
+                                          color: textColor,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -116,6 +120,11 @@ class _SportsPageState extends State<SportsPage> {
                                           color: Colors.green,
                                           borderRadius:
                                               BorderRadius.circular(7),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3,
+                                            ),
+                                          ],
                                         ),
                                         width: 47,
                                         height: 23,
@@ -150,7 +159,7 @@ class _SportsPageState extends State<SportsPage> {
                                                       '${snapshot.data!.docs[index].data()['visit']} ',
                                                       style: const TextStyle(
                                                         fontSize: 14,
-                                                        color: Colors.white,
+                                                        color: textColor,
                                                       ),
                                                     ),
                                                   );
@@ -174,7 +183,7 @@ class _SportsPageState extends State<SportsPage> {
                                             children: const [
                                               Icon(
                                                 Icons.sports_soccer_rounded,
-                                                color: Colors.white,
+                                                color: textColor,
                                               ),
                                               SizedBox(
                                                 width: 4,
@@ -182,7 +191,7 @@ class _SportsPageState extends State<SportsPage> {
                                               Text(
                                                 "Panampilly",
                                                 style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: textColor,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
@@ -213,11 +222,16 @@ class _SportsPageState extends State<SportsPage> {
                           margin: const EdgeInsets.symmetric(
                             horizontal: 10,
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
-                            color: Colors.grey[900],
+                            color: primaryColor,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                              ),
+                            ],
                           ),
                           child: Column(
                             children: [
@@ -230,7 +244,7 @@ class _SportsPageState extends State<SportsPage> {
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
                                     image: AssetImage(
-                                      "lib/src/assets/bullring.png",
+                                      "lib/src/assets/bullring.jpg",
                                     ),
                                     fit: BoxFit.fitWidth,
                                   ),
@@ -240,18 +254,15 @@ class _SportsPageState extends State<SportsPage> {
                                   ),
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 height: 100,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white10,
-                                ),
                                 child: Column(
                                   children: [
                                     ListTile(
                                       leading: const Text(
                                         "BullRing FC",
                                         style: TextStyle(
-                                          color: Colors.white,
+                                          color: textColor,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -263,6 +274,11 @@ class _SportsPageState extends State<SportsPage> {
                                           color: Colors.green,
                                           borderRadius:
                                               BorderRadius.circular(7),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3,
+                                            ),
+                                          ],
                                         ),
                                         width: 47,
                                         height: 23,
@@ -297,7 +313,7 @@ class _SportsPageState extends State<SportsPage> {
                                                       '${snapshot.data!.docs[index].data()['visit']} ',
                                                       style: const TextStyle(
                                                         fontSize: 14,
-                                                        color: Colors.white,
+                                                        color: textColor,
                                                       ),
                                                     ),
                                                   );
@@ -321,7 +337,7 @@ class _SportsPageState extends State<SportsPage> {
                                             children: const [
                                               Icon(
                                                 Icons.sports_soccer_rounded,
-                                                color: Colors.white,
+                                                color: textColor,
                                               ),
                                               SizedBox(
                                                 width: 4,
@@ -329,7 +345,7 @@ class _SportsPageState extends State<SportsPage> {
                                               Text(
                                                 "Edapally",
                                                 style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: textColor,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
@@ -367,11 +383,16 @@ class _SportsPageState extends State<SportsPage> {
                           margin: const EdgeInsets.symmetric(
                             horizontal: 10,
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
-                            color: Colors.grey[900],
+                            color: primaryColor,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                              ),
+                            ],
                           ),
                           child: Column(
                             children: [
@@ -384,7 +405,7 @@ class _SportsPageState extends State<SportsPage> {
                                 decoration: const BoxDecoration(
                                   image: DecorationImage(
                                     image: AssetImage(
-                                      "lib/src/assets/bullring.png",
+                                      "lib/src/assets/bullring.jpg",
                                     ),
                                     fit: BoxFit.fitWidth,
                                   ),
@@ -394,18 +415,15 @@ class _SportsPageState extends State<SportsPage> {
                                   ),
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 height: 100,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white10,
-                                ),
                                 child: Column(
                                   children: [
                                     ListTile(
                                       leading: const Text(
                                         "BullRing FC",
                                         style: TextStyle(
-                                          color: Colors.white,
+                                          color: textColor,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -417,6 +435,11 @@ class _SportsPageState extends State<SportsPage> {
                                           color: Colors.green,
                                           borderRadius:
                                               BorderRadius.circular(7),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3,
+                                            ),
+                                          ],
                                         ),
                                         width: 47,
                                         height: 23,
@@ -451,7 +474,7 @@ class _SportsPageState extends State<SportsPage> {
                                                       '${snapshot.data!.docs[index].data()['visit']} ',
                                                       style: const TextStyle(
                                                         fontSize: 14,
-                                                        color: Colors.white,
+                                                        color: textColor,
                                                       ),
                                                     ),
                                                   );
@@ -475,7 +498,7 @@ class _SportsPageState extends State<SportsPage> {
                                             children: const [
                                               Icon(
                                                 Icons.sports_tennis_sharp,
-                                                color: Colors.white,
+                                                color: textColor,
                                               ),
                                               SizedBox(
                                                 width: 4,
@@ -483,7 +506,7 @@ class _SportsPageState extends State<SportsPage> {
                                               Text(
                                                 "Pipeline Rd, Edapally",
                                                 style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: textColor,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),

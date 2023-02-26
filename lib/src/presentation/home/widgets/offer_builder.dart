@@ -1,3 +1,4 @@
+import 'package:chai/src/data/utils/global_var.dart';
 import 'package:flutter/material.dart';
 
 class OfferBuilder extends StatefulWidget {
@@ -17,104 +18,96 @@ class _OfferBuilderState extends State<OfferBuilder> {
         const SizedBox(
           height: 20,
         ),
-        InkWell(
-          // onTap: () => Navigator.of(context).push(
-          //   MaterialPageRoute(
-          //     builder: (context) => const HappyRolls(),
-          //   ),
-          // ),
-          child: Container(
-            height: 250,
-            width: MediaQuery.of(context).size.width,
-            margin: const EdgeInsets.symmetric(
-              horizontal: 10,
+        Container(
+          height: 250,
+          width: MediaQuery.of(context).size.width,
+          margin: const EdgeInsets.symmetric(
+            horizontal: 10,
+          ),
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(
+              Radius.circular(20),
             ),
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 3,
               ),
-              color: Colors.grey[900],
-            ),
-            child: Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.only(
-                    top: 0,
+            ],
+            color: primaryColor,
+          ),
+          child: Column(
+            children: [
+              Container(
+                margin: const EdgeInsets.only(
+                  top: 0,
+                ),
+                height: 150,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      '${widget.snap['image']}',
+                    ),
+                    fit: BoxFit.fill,
                   ),
-                  height: 150,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        '${widget.snap['image']}',
-                      ),
-                      fit: BoxFit.fill,
-                    ),
-                    borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(20),
-                      topRight: Radius.circular(20),
-                    ),
+                  borderRadius: const BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
                   ),
                 ),
-                Container(
-                  height: 100,
-                  decoration: const BoxDecoration(
-                    color: Colors.white10,
+              ),
+              Column(
+                children: [
+                  ListTile(
+                    leading: Text(
+                      "${widget.snap['nameOffer']}",
+                      style: const TextStyle(
+                        color: textColor,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    trailing: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 2),
+                      decoration: BoxDecoration(
+                        color: Colors.green,
+                        borderRadius: BorderRadius.circular(7),
+                      ),
+                      width: 47,
+                      height: 23,
+                      child: const Text(
+                        "New",
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
                   ),
-                  child: Column(
-                    children: [
-                      ListTile(
-                        leading: Text(
-                          "${widget.snap['nameOffer']}",
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 18,
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "${widget.snap['nameHotel']}",
                           style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
+                            color: textColor,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                        trailing: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 2),
-                          decoration: BoxDecoration(
-                            color: Colors.green,
-                            borderRadius: BorderRadius.circular(7),
-                          ),
-                          width: 47,
-                          height: 23,
-                          child: const Text(
-                            "New",
-                            textAlign: TextAlign.center,
+                        Text(
+                          "${widget.snap['type']}",
+                          style: const TextStyle(
+                            color: textColor,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 18,
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "${widget.snap['nameHotel']}",
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Text(
-                              "${widget.snap['type']}",
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+            ],
           ),
         ),
       ],

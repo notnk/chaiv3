@@ -27,15 +27,18 @@ class _SaloonPageState extends State<SaloonPage> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
                       horizontal: horizontalPadding,
                       vertical: verticalPadding,
                     ),
                     child: Text(
                       "Avaliable Saloons",
-                      style:
-                          TextStyle(fontSize: 20, color: Colors.grey.shade800),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 13),
@@ -43,12 +46,11 @@ class _SaloonPageState extends State<SaloonPage> {
                     padding: EdgeInsets.symmetric(horizontal: 40.0),
                     child: Divider(
                       thickness: 1,
-                      color: Color.fromARGB(255, 204, 204, 204),
+                      color: Colors.black,
                     ),
                   ),
                   Column(
                     children: [
-                      Container(),
                       const SizedBox(
                         height: 40,
                       ),
@@ -64,11 +66,16 @@ class _SaloonPageState extends State<SaloonPage> {
                           margin: const EdgeInsets.symmetric(
                             horizontal: 10,
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
-                            color: Colors.grey[900],
+                            color: primaryColor,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                              ),
+                            ],
                           ),
                           child: Column(
                             children: [
@@ -91,18 +98,15 @@ class _SaloonPageState extends State<SaloonPage> {
                                   ),
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 height: 100,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white10,
-                                ),
                                 child: Column(
                                   children: [
                                     ListTile(
                                       leading: const Text(
                                         "Style On",
                                         style: TextStyle(
-                                          color: Colors.white,
+                                          color: textColor,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -114,6 +118,11 @@ class _SaloonPageState extends State<SaloonPage> {
                                           color: Colors.green,
                                           borderRadius:
                                               BorderRadius.circular(7),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3,
+                                            ),
+                                          ],
                                         ),
                                         width: 47,
                                         height: 23,
@@ -148,7 +157,7 @@ class _SaloonPageState extends State<SaloonPage> {
                                                       '${snapshot.data!.docs[index].data()['coin']} ',
                                                       style: const TextStyle(
                                                         fontSize: 14,
-                                                        color: Colors.white,
+                                                        color: textColor,
                                                       ),
                                                     ),
                                                   );
@@ -172,15 +181,15 @@ class _SaloonPageState extends State<SaloonPage> {
                                             children: const [
                                               Icon(
                                                 Icons.cut,
-                                                color: Colors.white,
+                                                color: textColor,
                                               ),
                                               SizedBox(
                                                 width: 4,
                                               ),
                                               Text(
-                                                "Hairsaloon : FortKochi",
+                                                "FortKochi",
                                                 style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: textColor,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
@@ -189,7 +198,7 @@ class _SaloonPageState extends State<SaloonPage> {
                                           const Text(
                                             "120 for one",
                                             style: TextStyle(
-                                              color: Colors.white,
+                                              color: textColor,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),

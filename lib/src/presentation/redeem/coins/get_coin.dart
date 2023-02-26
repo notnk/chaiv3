@@ -33,7 +33,7 @@ class _GetCoinState extends State<GetCoin> {
           barrierLabel: "Error",
           barrierDismissible: true,
           context: context,
-          builder: (BuildContext context) => AlertDialog(
+          builder: (BuildContext context) => const AlertDialog(
             content: Text(
               'Wrong code',
               textAlign: TextAlign.center,
@@ -48,9 +48,7 @@ class _GetCoinState extends State<GetCoin> {
           // Navigator.of(context).pop();
           Navigator.of(context).pushAndRemoveUntil(
               MaterialPageRoute(
-                builder: (context) => SuccPage(
-                  hotelName: widget.hotelName,
-                ),
+                builder: (context) => const SuccPage(),
               ),
               (route) => false);
         }
@@ -60,7 +58,7 @@ class _GetCoinState extends State<GetCoin> {
         barrierLabel: "Error",
         barrierDismissible: true,
         context: context,
-        builder: (BuildContext context) => AlertDialog(
+        builder: (BuildContext context) => const AlertDialog(
           content: Text(
             'Min amount is 100',
             textAlign: TextAlign.center,
@@ -112,7 +110,7 @@ class _GetCoinState extends State<GetCoin> {
                 hintStyle: const TextStyle(
                   color: Colors.white,
                 ),
-                label: Text(
+                label: const Text(
                   "Enter Amount",
                   style: TextStyle(
                     color: textColor,
@@ -134,10 +132,10 @@ class _GetCoinState extends State<GetCoin> {
                 focusedBorder: inputBorder,
                 enabledBorder: inputBorder,
                 hintText: 'Code is Confidential',
-                hintStyle: TextStyle(
+                hintStyle: const TextStyle(
                   color: textColor,
                 ),
-                label: Text(
+                label: const Text(
                   "Enter Code",
                   style: TextStyle(
                     color: textColor,
@@ -152,8 +150,9 @@ class _GetCoinState extends State<GetCoin> {
             const SizedBox(
               height: 60,
             ),
-            Text(
+            const Text(
               " Code should be entred by the offical member ",
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontStyle: FontStyle.italic,
                 color: textColor,
@@ -174,7 +173,7 @@ class _GetCoinState extends State<GetCoin> {
                 ),
                 child: Center(
                   child: isLoading == false
-                      ? Text(
+                      ? const Text(
                           "Submit",
                           style: TextStyle(color: textColor),
                         )

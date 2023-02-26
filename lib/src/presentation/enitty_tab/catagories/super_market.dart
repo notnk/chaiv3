@@ -27,15 +27,18 @@ class _SuperMarketPageState extends State<SuperMarketPage> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
                       horizontal: horizontalPadding,
                       vertical: verticalPadding,
                     ),
                     child: Text(
                       "Avaliable SuperMarkets",
-                      style:
-                          TextStyle(fontSize: 20, color: Colors.grey.shade800),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: textColor,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 13),
@@ -43,12 +46,11 @@ class _SuperMarketPageState extends State<SuperMarketPage> {
                     padding: EdgeInsets.symmetric(horizontal: 40.0),
                     child: Divider(
                       thickness: 1,
-                      color: Color.fromARGB(255, 204, 204, 204),
+                      color: Colors.black,
                     ),
                   ),
                   Column(
                     children: [
-                      Container(),
                       const SizedBox(
                         height: 40,
                       ),
@@ -64,11 +66,16 @@ class _SuperMarketPageState extends State<SuperMarketPage> {
                           margin: const EdgeInsets.symmetric(
                             horizontal: 10,
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
-                            color: Colors.grey[900],
+                            color: primaryColor,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                              ),
+                            ],
                           ),
                           child: Column(
                             children: [
@@ -91,18 +98,15 @@ class _SuperMarketPageState extends State<SuperMarketPage> {
                                   ),
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 height: 100,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white10,
-                                ),
                                 child: Column(
                                   children: [
                                     ListTile(
                                       leading: const Text(
                                         "Better Life",
                                         style: TextStyle(
-                                          color: Colors.white,
+                                          color: textColor,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -112,6 +116,11 @@ class _SuperMarketPageState extends State<SuperMarketPage> {
                                             horizontal: 2),
                                         decoration: BoxDecoration(
                                           color: Colors.green,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3,
+                                            ),
+                                          ],
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -148,7 +157,7 @@ class _SuperMarketPageState extends State<SuperMarketPage> {
                                                       '${snapshot.data!.docs[index].data()['coin']} ',
                                                       style: const TextStyle(
                                                         fontSize: 14,
-                                                        color: Colors.white,
+                                                        color: textColor,
                                                       ),
                                                     ),
                                                   );
@@ -172,7 +181,7 @@ class _SuperMarketPageState extends State<SuperMarketPage> {
                                             children: const [
                                               Icon(
                                                 Icons.local_grocery_store,
-                                                color: Colors.white,
+                                                color: textColor,
                                               ),
                                               SizedBox(
                                                 width: 4,
@@ -180,7 +189,7 @@ class _SuperMarketPageState extends State<SuperMarketPage> {
                                               Text(
                                                 "FortKochi",
                                                 style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: textColor,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
@@ -189,7 +198,7 @@ class _SuperMarketPageState extends State<SuperMarketPage> {
                                           // const Text(
                                           //   "10% Discount",
                                           //   style: TextStyle(
-                                          //     color: Colors.white,
+                                          //     color: textColor,
                                           //     fontWeight: FontWeight.bold,
                                           //   ),
                                           // ),

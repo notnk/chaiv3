@@ -22,7 +22,6 @@ class OffersState extends State<Offers> {
   @override
   Widget build(BuildContext context) {
     final coin = int.parse(widget.snap['coin']);
-
     return Column(
       children: [
         const SizedBox(
@@ -61,12 +60,6 @@ class OffersState extends State<Offers> {
                   widget.snap['name'],
                   style: GoogleFonts.bebasNeue(
                     fontSize: 20,
-                    color: Colors.black87,
-                  ),
-                ),
-                subtitle: Text(
-                  widget.snap['name'],
-                  style: GoogleFonts.bebasNeue(
                     color: Colors.black87,
                   ),
                 ),

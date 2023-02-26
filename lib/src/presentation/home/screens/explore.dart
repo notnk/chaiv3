@@ -10,14 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:swipeable_page_route/swipeable_page_route.dart';
 
-class NewExplorePage extends StatefulWidget {
-  const NewExplorePage({super.key});
+class ExplorePage extends StatefulWidget {
+  const ExplorePage({super.key});
 
   @override
-  State<NewExplorePage> createState() => _NewExplorePageState();
+  State<ExplorePage> createState() => _ExplorePageState();
 }
 
-class _NewExplorePageState extends State<NewExplorePage> {
+class _ExplorePageState extends State<ExplorePage> {
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
@@ -42,15 +42,11 @@ class _NewExplorePageState extends State<NewExplorePage> {
                         builder: (context) => const TrendingPage(),
                       ),
                     ),
-                    // child: Image.asset(
-                    //   'lib/src/assets/menu.png',
-                    //   height: 45,
-                    //   color: Colors.grey[800],
-                    // ),
-                    child: Icon(
-                      Icons.discount,
-                      size: 42,
-                      color: Colors.grey[800],
+                    child: const CircleAvatar(
+                      foregroundImage: AssetImage(
+                        'lib/src/assets/trending.webp',
+                      ),
+                      radius: 25,
                     ),
                   ),
                   InkWell(
@@ -59,10 +55,11 @@ class _NewExplorePageState extends State<NewExplorePage> {
                         builder: (context) => const Account(),
                       ),
                     ),
-                    child: Icon(
-                      Icons.person,
-                      size: 45,
-                      color: Colors.grey[800],
+                    child: const CircleAvatar(
+                      foregroundImage: AssetImage(
+                        'lib/src/assets/chai_final.jpg',
+                      ),
+                      radius: 25,
                     ),
                   ),
                 ],
@@ -84,9 +81,10 @@ class _NewExplorePageState extends State<NewExplorePage> {
                   ),
                   Text(
                     '${auth.currentUser!.displayName}',
-                    style: TextStyle(
+                    style: const TextStyle(
+                      fontStyle: FontStyle.italic,
                       fontSize: 22,
-                      color: Colors.grey.shade800,
+                      color: textColor,
                     ),
                   ),
                 ],
@@ -97,19 +95,18 @@ class _NewExplorePageState extends State<NewExplorePage> {
               padding: EdgeInsets.symmetric(horizontal: 40.0),
               child: Divider(
                 thickness: 1,
-                color: Color.fromARGB(255, 204, 204, 204),
+                color: Colors.black,
               ),
             ),
             const SizedBox(height: 20),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: horizontalPadding),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: horizontalPadding),
               child: Text(
                 "What we provide",
                 style: TextStyle(
-                  fontWeight: FontWeight.bold,
                   fontSize: 24,
-                  color: Colors.grey.shade800,
+                  color: textColor,
+                  fontStyle: FontStyle.italic,
                 ),
               ),
             ),
@@ -134,7 +131,13 @@ class _NewExplorePageState extends State<NewExplorePage> {
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(24),
-                          color: const Color.fromARGB(44, 164, 167, 189),
+                          boxShadow: const [
+                            BoxShadow(
+                              offset: Offset(5, 5),
+                              blurRadius: 3,
+                            ),
+                          ],
+                          color: primaryColor,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 25.0),
@@ -152,7 +155,7 @@ class _NewExplorePageState extends State<NewExplorePage> {
                               ),
                               const Divider(
                                 thickness: 1,
-                                color: Color.fromARGB(255, 204, 204, 204),
+                                color: Colors.black,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -193,8 +196,14 @@ class _NewExplorePageState extends State<NewExplorePage> {
                       padding: const EdgeInsets.all(15.0),
                       child: Container(
                         decoration: BoxDecoration(
+                          boxShadow: const [
+                            BoxShadow(
+                              offset: Offset(5, 5),
+                              blurRadius: 3,
+                            ),
+                          ],
                           borderRadius: BorderRadius.circular(24),
-                          color: const Color.fromARGB(44, 164, 167, 189),
+                          color: primaryColor,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 25.0),
@@ -212,7 +221,7 @@ class _NewExplorePageState extends State<NewExplorePage> {
                               ),
                               const Divider(
                                 thickness: 1,
-                                color: Color.fromARGB(255, 204, 204, 204),
+                                color: Colors.black,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -226,14 +235,6 @@ class _NewExplorePageState extends State<NewExplorePage> {
                                       fontStyle: FontStyle.italic,
                                     ),
                                   ),
-                                  // Text(
-                                  //   '2.Happy Rolls',
-                                  //   style: TextStyle(
-                                  //     fontWeight: FontWeight.bold,
-                                  //     fontSize: 15,
-                                  //     color: Colors.black,
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ],
@@ -252,8 +253,14 @@ class _NewExplorePageState extends State<NewExplorePage> {
                       padding: const EdgeInsets.all(15.0),
                       child: Container(
                         decoration: BoxDecoration(
+                          boxShadow: const [
+                            BoxShadow(
+                              offset: Offset(5, 5),
+                              blurRadius: 3,
+                            ),
+                          ],
                           borderRadius: BorderRadius.circular(24),
-                          color: const Color.fromARGB(44, 164, 167, 189),
+                          color: primaryColor,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 25.0),
@@ -271,7 +278,7 @@ class _NewExplorePageState extends State<NewExplorePage> {
                               ),
                               const Divider(
                                 thickness: 1,
-                                color: Color.fromARGB(255, 204, 204, 204),
+                                color: Colors.black,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -286,14 +293,6 @@ class _NewExplorePageState extends State<NewExplorePage> {
                                       fontStyle: FontStyle.italic,
                                     ),
                                   ),
-                                  // Text(
-                                  //   '2.Happy Rolls',
-                                  //   style: TextStyle(
-                                  //     fontWeight: FontWeight.bold,
-                                  //     fontSize: 15,
-                                  //     color: Colors.black,
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ],
@@ -312,8 +311,14 @@ class _NewExplorePageState extends State<NewExplorePage> {
                       padding: const EdgeInsets.all(15.0),
                       child: Container(
                         decoration: BoxDecoration(
+                          boxShadow: const [
+                            BoxShadow(
+                              blurRadius: 3,
+                              offset: Offset(5, 5),
+                            ),
+                          ],
                           borderRadius: BorderRadius.circular(24),
-                          color: const Color.fromARGB(44, 164, 167, 189),
+                          color: primaryColor,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(vertical: 25.0),
@@ -331,7 +336,7 @@ class _NewExplorePageState extends State<NewExplorePage> {
                               ),
                               const Divider(
                                 thickness: 1,
-                                color: Color.fromARGB(255, 204, 204, 204),
+                                color: Colors.black,
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -345,14 +350,6 @@ class _NewExplorePageState extends State<NewExplorePage> {
                                       fontStyle: FontStyle.italic,
                                     ),
                                   ),
-                                  // Text(
-                                  //   '2.Happy Rolls',
-                                  //   style: TextStyle(
-                                  //     fontWeight: FontWeight.bold,
-                                  //     fontSize: 15,
-                                  //     color: Colors.black,
-                                  //   ),
-                                  // ),
                                 ],
                               ),
                             ],

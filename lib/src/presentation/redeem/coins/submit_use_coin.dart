@@ -34,7 +34,7 @@ class _SubmitUseCoinState extends State<SubmitUseCoin> {
         if (mounted) {
           Navigator.of(context).pushReplacement(
             SwipeablePageRoute(
-              builder: (context) => SuccPage(hotelName: widget.hotelName),
+              builder: (context) => const SuccPage(),
             ),
           );
         }
@@ -61,7 +61,7 @@ class _SubmitUseCoinState extends State<SubmitUseCoin> {
         if (mounted) {
           Navigator.of(context).pushReplacement(
             SwipeablePageRoute(
-              builder: (context) => SuccPage(hotelName: widget.hotelName),
+              builder: (context) => const SuccPage(),
             ),
           );
         }

@@ -28,15 +28,18 @@ class _FoodPageState extends State<FoodPage> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
                       horizontal: horizontalPadding,
                       vertical: verticalPadding,
                     ),
                     child: Text(
                       "Avaliable Restarants",
-                      style:
-                          TextStyle(fontSize: 20, color: Colors.grey.shade800),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: textColor,
+                      ),
                     ),
                   ),
                   const SizedBox(height: 13),
@@ -44,12 +47,11 @@ class _FoodPageState extends State<FoodPage> {
                     padding: EdgeInsets.symmetric(horizontal: 40.0),
                     child: Divider(
                       thickness: 1,
-                      color: Color.fromARGB(255, 204, 204, 204),
+                      color: textColor,
                     ),
                   ),
                   Column(
                     children: [
-                      Container(),
                       const SizedBox(
                         height: 40,
                       ),
@@ -65,11 +67,16 @@ class _FoodPageState extends State<FoodPage> {
                           margin: const EdgeInsets.symmetric(
                             horizontal: 10,
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
-                            color: Colors.grey[900],
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                              ),
+                            ],
+                            color: primaryColor,
                           ),
                           child: Column(
                             children: [
@@ -92,18 +99,15 @@ class _FoodPageState extends State<FoodPage> {
                                   ),
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 height: 100,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white10,
-                                ),
                                 child: Column(
                                   children: [
                                     ListTile(
                                       leading: const Text(
                                         "Melty Way",
                                         style: TextStyle(
-                                          color: Colors.white,
+                                          color: textColor,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -115,6 +119,11 @@ class _FoodPageState extends State<FoodPage> {
                                           color: Colors.green,
                                           borderRadius:
                                               BorderRadius.circular(7),
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3,
+                                            ),
+                                          ],
                                         ),
                                         width: 47,
                                         height: 23,
@@ -149,7 +158,7 @@ class _FoodPageState extends State<FoodPage> {
                                                       '${snapshot.data!.docs[index].data()['coin']} ',
                                                       style: const TextStyle(
                                                         fontSize: 14,
-                                                        color: Colors.white,
+                                                        color: textColor,
                                                       ),
                                                     ),
                                                   );
@@ -173,7 +182,7 @@ class _FoodPageState extends State<FoodPage> {
                                             children: const [
                                               Icon(
                                                 Icons.food_bank_rounded,
-                                                color: Colors.white,
+                                                color: textColor,
                                               ),
                                               SizedBox(
                                                 width: 4,
@@ -181,7 +190,7 @@ class _FoodPageState extends State<FoodPage> {
                                               Text(
                                                 "FastFood : FortKochi",
                                                 style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: textColor,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
@@ -190,7 +199,7 @@ class _FoodPageState extends State<FoodPage> {
                                           const Text(
                                             "250 for two",
                                             style: TextStyle(
-                                              color: Colors.white,
+                                              color: textColor,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),
@@ -219,11 +228,16 @@ class _FoodPageState extends State<FoodPage> {
                           margin: const EdgeInsets.symmetric(
                             horizontal: 10,
                           ),
-                          decoration: BoxDecoration(
-                            borderRadius: const BorderRadius.all(
+                          decoration: const BoxDecoration(
+                            borderRadius: BorderRadius.all(
                               Radius.circular(20),
                             ),
-                            color: Colors.grey[900],
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 3,
+                              ),
+                            ],
+                            color: primaryColor,
                           ),
                           child: Column(
                             children: [
@@ -238,7 +252,7 @@ class _FoodPageState extends State<FoodPage> {
                                     image: AssetImage(
                                       "lib/src/assets/HappyRolls.jpg",
                                     ),
-                                    fit: BoxFit.fill,
+                                    fit: BoxFit.cover,
                                   ),
                                   borderRadius: BorderRadius.only(
                                     topLeft: Radius.circular(20),
@@ -246,18 +260,15 @@ class _FoodPageState extends State<FoodPage> {
                                   ),
                                 ),
                               ),
-                              Container(
+                              SizedBox(
                                 height: 100,
-                                decoration: const BoxDecoration(
-                                  color: Colors.white10,
-                                ),
                                 child: Column(
                                   children: [
                                     ListTile(
                                       leading: const Text(
                                         "Happy Rolls",
                                         style: TextStyle(
-                                          color: Colors.white,
+                                          color: textColor,
                                           fontSize: 18,
                                           fontWeight: FontWeight.w500,
                                         ),
@@ -267,6 +278,11 @@ class _FoodPageState extends State<FoodPage> {
                                             horizontal: 2),
                                         decoration: BoxDecoration(
                                           color: Colors.green,
+                                          boxShadow: const [
+                                            BoxShadow(
+                                              blurRadius: 3,
+                                            ),
+                                          ],
                                           borderRadius:
                                               BorderRadius.circular(7),
                                         ),
@@ -303,7 +319,7 @@ class _FoodPageState extends State<FoodPage> {
                                                       '${snapshot.data!.docs[index].data()['coin']} ',
                                                       style: const TextStyle(
                                                         fontSize: 14,
-                                                        color: Colors.white,
+                                                        color: textColor,
                                                       ),
                                                     ),
                                                   );
@@ -327,7 +343,7 @@ class _FoodPageState extends State<FoodPage> {
                                             children: const [
                                               Icon(
                                                 Icons.food_bank_rounded,
-                                                color: Colors.white,
+                                                color: textColor,
                                               ),
                                               SizedBox(
                                                 width: 4,
@@ -335,7 +351,7 @@ class _FoodPageState extends State<FoodPage> {
                                               Text(
                                                 "Arabic Rolls : FortKochi",
                                                 style: TextStyle(
-                                                  color: Colors.white,
+                                                  color: textColor,
                                                   fontWeight: FontWeight.bold,
                                                 ),
                                               ),
@@ -344,7 +360,7 @@ class _FoodPageState extends State<FoodPage> {
                                           const Text(
                                             "80 for one",
                                             style: TextStyle(
-                                              color: Colors.white,
+                                              color: textColor,
                                               fontWeight: FontWeight.bold,
                                             ),
                                           ),

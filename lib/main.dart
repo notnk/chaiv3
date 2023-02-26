@@ -1,8 +1,8 @@
 import 'package:chai/src/data/utils/global_var.dart';
+import 'package:chai/src/presentation/home/screens/explore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'package:firebase_core/firebase_core.dart';
-import 'src/presentation/home/screens/explore.dart';
 import 'src/presentation/login/intro.dart';
 
 void main() async {
@@ -11,25 +11,23 @@ void main() async {
   runApp(
     MaterialApp(
       theme: ThemeData(
-        // visualDensity: VisualDensity.adaptivePlatformDensity,
-        // primaryColor: primaryColor,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
         useMaterial3: true,
         scaffoldBackgroundColor: newBackgroundColor,
-        textTheme: const TextTheme(
-          bodyText2: TextStyle(
-            color: Colors.black,
-          ),
-          bodyText1: TextStyle(
-            color: Colors.black,
-          ),
-        ),
+        // textTheme: const TextTheme(
+        //   bodyText2: TextStyle(
+        //     color: textColor,
+        //   ),
+        //   bodyText1: TextStyle(
+        //     color: textColor,
+        //   ),
+        // ),
       ),
-      debugShowCheckedModeBanner: false,
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
-            return const NewExplorePage();
+            return const ExplorePage();
           } else {
             return const IntroPage();
           }

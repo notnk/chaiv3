@@ -21,23 +21,36 @@ class _TrendingPageState extends State<TrendingPage> {
             SliverList(
               delegate: SliverChildListDelegate(
                 [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
+                  const Padding(
+                    padding: EdgeInsets.symmetric(
                       horizontal: horizontalPadding,
                       vertical: verticalPadding,
                     ),
                     child: Text(
                       "Trending Offers Avaliable",
-                      style:
-                          TextStyle(fontSize: 20, color: Colors.grey.shade800),
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 20,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 13),
+                  const SizedBox(height: 8),
                   const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 40.0),
                     child: Divider(
                       thickness: 1,
-                      color: Color.fromARGB(255, 204, 204, 204),
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 13),
+                  const Text(
+                    "The contents can only be redeemed directly from the shop",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontStyle: FontStyle.italic,
+                      color: textColor,
+                      fontSize: 15,
                     ),
                   ),
                   SizedBox(

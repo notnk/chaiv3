@@ -42,6 +42,7 @@ class VisitsState extends State<Visits> {
             ),
           ),
           child: Container(
+            height: 100,
             margin: const EdgeInsets.symmetric(
               horizontal: 10,
             ),
@@ -58,21 +59,21 @@ class VisitsState extends State<Visits> {
                 opacity: 80,
               ),
             ),
-            child: ListTile(
-              title: Text(
-                widget.snap['name'],
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 18,
-                  color: Colors.black87,
-                  // fontWeight: FontWeight.bold,
+            child: Center(
+              child: ListTile(
+                title: Text(
+                  widget.snap['name'],
+                  style: GoogleFonts.bebasNeue(
+                    fontSize: 20,
+                    color: Colors.black87,
+                  ),
                 ),
-              ),
-              trailing: Text(
-                widget.snap['visits'],
-                style: GoogleFonts.bebasNeue(
-                  fontSize: 18,
-                  color: Colors.black87,
-                  // fontWeight: FontWeight.bold,
+                trailing: Text(
+                  widget.snap['visits'],
+                  style: GoogleFonts.bebasNeue(
+                    fontSize: 20,
+                    color: Colors.black87,
+                  ),
                 ),
               ),
             ),

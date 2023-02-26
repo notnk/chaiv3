@@ -32,58 +32,57 @@ class _IntroPageState extends State<IntroPage> {
           ),
           backSemantic: 'Back',
           dotsDecorator: const DotsDecorator(
-            color: Colors.black,
-            activeColor: Colors.white,
+            color: newBackgroundColor,
+            activeColor: Colors.black,
           ),
-          back: Text(
+          back: const Text(
             'Back',
             style: TextStyle(
               color: textColor,
             ),
           ),
-          skip: Text(
+          skip: const Text(
             "Skip",
             style: TextStyle(
               color: textColor,
             ),
           ),
-          done: Text(
-            "Login",
-            style: TextStyle(
-              color: textColor,
-            ),
+          done: Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: const [
+              Icon(
+                Icons.g_mobiledata_rounded,
+                size: 23,
+              ),
+              Text(
+                "Login",
+                style: TextStyle(
+                  color: textColor,
+                  fontSize: 10,
+                ),
+              ),
+            ],
           ),
           dotsFlex: 3,
           onDone: () => onTapLogin(),
           pages: [
             PageViewModel(
-              title: '1',
-              body:
-                  'This is not the final build\n dont forwards this apk\nThe images inside have not been finilized',
-              decoration: const PageDecoration(
-                bodyAlignment: Alignment.center,
+              title: '',
+              bodyWidget: Image.asset(
+                'lib/src/assets/1.png',
               ),
             ),
             PageViewModel(
-              title: 'Passwords',
-              // body: 'Passwords',
-              bodyWidget: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: const [
-                  Text(
-                      "betterlife 2023\nbullring 2001\nhappyrolls 2022\nmeltyway 200006\nstyleon 2000"),
-                ],
-              ),
-              decoration: const PageDecoration(
-                bodyAlignment: Alignment.center,
+              title: '',
+              bodyWidget: Image.asset(
+                'lib/src/assets/2.png',
               ),
             ),
             PageViewModel(
-              decoration: const PageDecoration(
-                bodyAlignment: Alignment.center,
+              bodyWidget: Image.asset(
+                'lib/src/assets/3.png',
               ),
-              title: 'Login',
-              body: 'Login using Google',
+              title: '',
             ),
           ],
         ),

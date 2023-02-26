@@ -62,10 +62,9 @@ class _MeltyPageState extends State<MeltyPage> {
         ),
       ),
       appBar: AppBar(
-        // elevation: 0.2,
         centerTitle: false,
         backgroundColor: newBackgroundColor,
-        title: Text(
+        title: const Text(
           'MeltyWay',
           style: TextStyle(
             color: textColor,
@@ -81,7 +80,7 @@ class _MeltyPageState extends State<MeltyPage> {
                 Column(
                   children: [
                     SizedBox(
-                      height: 140,
+                      height: 85,
                       child: StreamBuilder(
                         stream: FirebaseFirestore.instance
                             .collection('users')
@@ -105,6 +104,11 @@ class _MeltyPageState extends State<MeltyPage> {
                                 return Container(
                                   margin: const EdgeInsets.all(10),
                                   decoration: const BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        blurRadius: 1,
+                                      ),
+                                    ],
                                     color: primaryColor,
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(15),
@@ -113,7 +117,7 @@ class _MeltyPageState extends State<MeltyPage> {
                                   child: Column(
                                     children: [
                                       ListTile(
-                                        leading: Text(
+                                        leading: const Text(
                                           "Coins Earned",
                                           style: TextStyle(
                                             fontSize: 18,
@@ -122,28 +126,12 @@ class _MeltyPageState extends State<MeltyPage> {
                                         ),
                                         trailing: Text(
                                           '${snapshot.data!.docs[index].data()['coin']} ',
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 18,
                                             color: textColor,
                                           ),
                                         ),
                                       ),
-                                      // ListTile(
-                                      //   leading: Text(
-                                      //     "Your visits",
-                                      //     style: TextStyle(
-                                      //       fontSize: 18,
-                                      //       color: textColor,
-                                      //     ),
-                                      //   ),
-                                      //   trailing: Text(
-                                      //     ' ${snapshot.data!.docs[index].data()['visit']}',
-                                      //     style: TextStyle(
-                                      //       fontSize: 18,
-                                      //       color: textColor,
-                                      //     ),
-                                      //   ),
-                                      // ),
                                     ],
                                   ),
                                 );
@@ -156,23 +144,21 @@ class _MeltyPageState extends State<MeltyPage> {
                     ),
                     Container(
                       margin: const EdgeInsets.symmetric(horizontal: 10),
-                      // width: MediaQuery.of(context).size.width,
                       height: 200,
                       decoration: const BoxDecoration(
                         boxShadow: [
                           BoxShadow(
-                            // color: textColor,
                             blurRadius: 1,
-                            spreadRadius: 2,
                           ),
                         ],
                         borderRadius: BorderRadius.all(
                           Radius.circular(15),
                         ),
                         image: DecorationImage(
-                          image: AssetImage(
-                              'lib/src/assets/meltyway/home_image.jpg'),
-                          fit: BoxFit.fill,
+                          image: NetworkImage(
+                            'https://images.pexels.com/photos/1093015/pexels-photo-1093015.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                          ),
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
@@ -182,113 +168,83 @@ class _MeltyPageState extends State<MeltyPage> {
                     SizedBox(
                       height: 30,
                       width: MediaQuery.of(context).size.width,
-                      child: ListView(
-                        shrinkWrap: true,
-                        scrollDirection: Axis.horizontal,
-                        children: [
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith(
-                                (states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return Colors.white;
-                                  }
-                                  return textColor;
-                                },
+                      child: Center(
+                        child: ListView(
+                          shrinkWrap: true,
+                          scrollDirection: Axis.horizontal,
+                          children: [
+                            const SizedBox(
+                              width: 15,
+                            ),
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith(
+                                  (states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
+                                      return Colors.white;
+                                    }
+                                    return primaryColor;
+                                  },
+                                ),
+                              ),
+                              onPressed: () => _launchUrl(url: locationUrl),
+                              child: Row(
+                                children: const [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Locate Us",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            onPressed: () => _launchUrl(url: locationUrl),
-                            child: Row(
-                              children: const [
-                                Icon(
-                                  Icons.location_on,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Location",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
+                            const SizedBox(
+                              width: 20,
                             ),
-                          ),
-                          // const SizedBox(
-                          //   width: 20,
-                          // ),
-                          // ElevatedButton(
-                          //   style: ButtonStyle(
-                          //     backgroundColor:
-                          //         MaterialStateProperty.resolveWith(
-                          //       (states) {
-                          //         if (states.contains(MaterialState.pressed)) {
-                          //           return Colors.white;
-                          //         }
-                          //         return primaryColor;
-                          //       },
-                          //     ),
-                          //   ),
-                          //   onPressed: () => {},
-                          //   child: Row(
-                          //     children: const [
-                          //       Icon(
-                          //         Icons.menu_open_rounded,
-                          //         color: Colors.white,
-                          //       ),
-                          //       SizedBox(
-                          //         width: 5,
-                          //       ),
-                          //       Text(
-                          //         "Menu",
-                          //         style: TextStyle(
-                          //           color: Colors.white,
-                          //         ),
-                          //       ),
-                          //     ],
-                          //   ),
-                          // ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor:
-                                  MaterialStateProperty.resolveWith(
-                                (states) {
-                                  if (states.contains(MaterialState.pressed)) {
-                                    return Colors.white;
-                                  }
-                                  return textColor;
-                                },
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.resolveWith(
+                                  (states) {
+                                    if (states
+                                        .contains(MaterialState.pressed)) {
+                                      return Colors.white;
+                                    }
+                                    return primaryColor;
+                                  },
+                                ),
+                              ),
+                              onPressed: () => _launchUrl(url: fbUrl),
+                              child: Row(
+                                children: const [
+                                  Icon(
+                                    Icons.facebook_rounded,
+                                    color: Colors.black,
+                                  ),
+                                  SizedBox(
+                                    width: 5,
+                                  ),
+                                  Text(
+                                    "Review Us",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
-                            onPressed: () => _launchUrl(url: fbUrl),
-                            child: Row(
-                              children: const [
-                                Icon(
-                                  Icons.facebook_rounded,
-                                  color: Colors.white,
-                                ),
-                                SizedBox(
-                                  width: 5,
-                                ),
-                                Text(
-                                  "Socials",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -296,15 +252,15 @@ class _MeltyPageState extends State<MeltyPage> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        const SizedBox(
+                      children: const [
+                        SizedBox(
                           width: 100,
                           child: Divider(
                             thickness: 1.3,
-                            color: Colors.grey,
+                            color: Colors.black,
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
                         Text(
@@ -314,14 +270,14 @@ class _MeltyPageState extends State<MeltyPage> {
                             color: textColor,
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 10,
                         ),
-                        const SizedBox(
+                        SizedBox(
                           width: 100,
                           child: Divider(
                             thickness: 1.3,
-                            color: Colors.grey,
+                            color: Colors.black,
                           ),
                         ),
                       ],
@@ -348,16 +304,14 @@ class _MeltyPageState extends State<MeltyPage> {
                             width: MediaQuery.of(context).size.width - 40,
                             decoration: BoxDecoration(
                               color: primaryColor,
-                              // boxShadow: [
-                              //   BoxShadow(
-                              //     blurRadius: 1,
-                              //     spreadRadius: 2,
-                              //     color: textColor,
-                              //   ),
-                              // ],
                               borderRadius: BorderRadius.circular(15),
+                              boxShadow: const [
+                                BoxShadow(
+                                  blurRadius: 1,
+                                ),
+                              ],
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 "Coins offers",
                                 style: TextStyle(
